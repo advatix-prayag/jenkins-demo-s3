@@ -14,7 +14,7 @@ pipeline {
               steps {
                   withAWS(region:'us-east-1',credentials:'6e1b27d1-a5af-4edb-a345-3d3d1f6013ba') {
                   sh 'echo "Uploading content with AWS creds"'
-                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'test3.txt', bucket:'war-test-demo')
+                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, path:'*', bucket:'war-test-demo')
                   }
               }
          }
