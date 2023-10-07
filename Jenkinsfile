@@ -12,9 +12,9 @@ pipeline {
          }      
          stage('Upload to AWS') {
               steps {
-                  withAWS(region:'us-east-1',credentials:'arn:aws:iam::792443250720:role/jenkins_test') {
+                  withAWS(region:'us-east-1',credentials:'arn:aws:iam::792443250720:user/jenkins') {
                   sh 'echo "Uploading content with AWS creds"'
-                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'app.py', bucket:'jenkins-s3-bucket-wach')
+                      s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'app.py', bucket:'war-test-demo')
                   }
               }
          }
